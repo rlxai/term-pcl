@@ -13,5 +13,4 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Terminal point cloud visualizer
  term-pcl is a command-line point cloud visualizer for Linux terminals.
  It loads PCD, PLY, XYZ, XYZN, XYZRGB, and native termcloud indexes,
- then renders them using an interactive terminal UI without requiring a
- ROS runtime.
+ then renders them using an interactive terminal UI.

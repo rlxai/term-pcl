@@ -4,14 +4,13 @@
 
 > Fast terminal point-cloud visualization for Linux.
 
-`term-pcl` is a native command-line point-cloud viewer that loads common point-cloud formats and renders them directly in the terminal with an interactive FTXUI interface. It is designed for quick inspection, remote-machine workflows, and large point-cloud navigation without a ROS runtime dependency.
+`term-pcl` is a native command-line point-cloud viewer that loads common point-cloud formats and renders them directly in the terminal with an interactive FTXUI interface. It is designed for quick inspection, remote-machine workflows, and large point-cloud navigation.
 
 ![term-pcl example](docs/assets/term-pcl-example.png)
 
 ## Highlights
 
 - Native Linux CLI: install and run `term-pcl` as a system command.
-- ROS-free runtime: inspect point clouds on machines without ROS 2 installed.
 - Common formats: `.pcd`, `.ply`, `.xyz`, `.xyzn`, `.xyzrgb`, and `.termcloud`.
 - RGB rendering: PLY, PCD, and XYZRGB clouds can use stored per-point colors.
 - Viewer color presets: RGB, elevation, x-axis, white, rainbow, turbo, viridis, heat, and grayscale.
