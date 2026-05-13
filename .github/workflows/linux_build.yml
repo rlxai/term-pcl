@@ -1,0 +1,60 @@
+name: Native Linux build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    name: ${{ matrix.artifact }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - image: ubuntu:22.04
+            artifact: ubuntu-22.04
+          - image: ubuntu:24.04
+            artifact: ubuntu-24.04
+          - image: debian:bookworm
+            artifact: debian-bookworm
+
+    container:
+      image: ${{ matrix.image }}
+
+    steps:
+      - name: Install checkout tools
+        run: |
+          apt-get update
+          apt-get install -y git ca-certificates
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          apt-get update
+          apt-get install -y cmake g++ make libpcl-dev debhelper-compat devscripts
+
+      - name: Configure
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build --parallel 2
+
+      - name: Test
+        run: ctest --test-dir build --output-on-failure
+
+      - name: Build Debian package
+        run: dpkg-buildpackage -us -uc -b
+
+      - name: Collect packages
+        run: |
+          mkdir -p artifacts
+          cp ../*.deb artifacts/
+
+      - name: Upload Debian packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: term-pcl-package-${{ matrix.artifact }}
+          path: artifacts/*.deb

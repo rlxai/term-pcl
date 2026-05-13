@@ -1,0 +1,5 @@
+term-pcl (0.1.0-1) unstable; urgency=medium
+
+  * Initial Debian package for term-pcl.
+
+ -- Robolabs AI <contact@robolabs.ai>  Wed, 13 May 2026 00:00:00 +0000
