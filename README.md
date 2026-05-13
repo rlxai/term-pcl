@@ -87,6 +87,12 @@ term-pcl cloud.xyz
 term-pcl cloud.xyzrgb
 ```
 
+Try the included sample point cloud from a source checkout:
+
+```bash
+term-pcl examples/robolabsai_3d_pointcloud.ply --color rgb
+```
+
 Validate a file without opening the UI:
 
 ```bash

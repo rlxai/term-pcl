@@ -21,12 +21,15 @@ jobs:
 
     container:
       image: ${{ matrix.image }}
+      env:
+        DEBIAN_FRONTEND: noninteractive
+        TZ: Etc/UTC
 
     steps:
       - name: Install checkout tools
         run: |
           apt-get update
-          apt-get install -y git ca-certificates
+          apt-get install -yq git ca-certificates
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,7 +37,7 @@ jobs:
       - name: Install build dependencies
         run: |
           apt-get update
-          apt-get install -y cmake g++ make libpcl-dev libopenmpi-dev debhelper-compat devscripts
+          apt-get install -yq cmake g++ make libpcl-dev libopenmpi-dev debhelper-compat devscripts
 
       - name: Configure
         run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
