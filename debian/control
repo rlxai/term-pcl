@@ -2,7 +2,7 @@ Source: term-pcl
 Section: graphics
 Priority: optional
 Maintainer: Robolabs AI <contact@robolabs.ai>
-Build-Depends: debhelper-compat (= 13), cmake, g++, libpcl-dev, git, ca-certificates
+Build-Depends: debhelper-compat (= 13), cmake, g++, libpcl-dev, libopenmpi-dev, git, ca-certificates
 Standards-Version: 4.6.2
 Homepage: https://robolabs.ai
 Rules-Requires-Root: no

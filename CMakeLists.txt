@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(term_pcl VERSION 0.1.0 LANGUAGES CXX)
+project(term_pcl VERSION 0.1.0 LANGUAGES C CXX)
 
 include(GNUInstallDirs)
 include(CTest)
@@ -8,7 +8,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-find_package(MPI COMPONENTS C QUIET)
+find_package(MPI REQUIRED COMPONENTS C)
 find_package(PCL REQUIRED COMPONENTS common io filters)
 
 option(TERM_PCL_FETCH_FTXUI "Download FTXUI with FetchContent when system package is unavailable" ON)

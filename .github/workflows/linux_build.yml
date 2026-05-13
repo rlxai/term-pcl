@@ -34,7 +34,7 @@ jobs:
       - name: Install build dependencies
         run: |
           apt-get update
-          apt-get install -y cmake g++ make libpcl-dev debhelper-compat devscripts
+          apt-get install -y cmake g++ make libpcl-dev libopenmpi-dev debhelper-compat devscripts
 
       - name: Configure
         run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
