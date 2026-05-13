@@ -262,7 +262,7 @@ Element Visualizer::render_frame() {
         separator(),
         canvas(std::move(c)) | hcenter | flex | border,
         hbox({
-            text(" [WASD] Orbit | [ARROWS] Pan | [1-3] Presets | [M] Color | [[] Splat- | []] Splat+ | [Q] Quit ") | dim,
+            text(" [WASD] Orbit | [ARROWS] Pan | [1-3] Presets | [C] Camera | [M] Color | [[] Splat- | []] Splat+ | [Q] Quit ") | dim,
             filler(),
             text(quit_flag_ ? " EXITING... " : "") | bold | color(Color::Red)
         })

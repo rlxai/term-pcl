@@ -1,5 +1,12 @@
 # term-pcl
 
+[![Native Linux build](https://github.com/rlxai/term-pcl/actions/workflows/linux_build.yml/badge.svg)](https://github.com/rlxai/term-pcl/actions/workflows/linux_build.yml)
+[![Latest release](https://img.shields.io/github/v/release/rlxai/term-pcl?label=release)](https://github.com/rlxai/term-pcl/releases/latest)
+[![License: BSD-3-Clause](https://img.shields.io/badge/license-BSD--3--Clause-blue.svg)](LICENSE)
+![Platform: Linux](https://img.shields.io/badge/platform-Linux-informational)
+![C++17](https://img.shields.io/badge/C%2B%2B-17-blue)
+[![Debian package](https://img.shields.io/badge/package-.deb-red)](https://github.com/rlxai/term-pcl/releases/latest/download/term-pcl-linux-amd64.deb)
+
 ![term-pcl hero](docs/assets/term-pcl-hero.png)
 
 > Fast terminal point-cloud visualization for Linux.
@@ -38,8 +45,22 @@ sudo apt install cmake g++ make libpcl-dev git ca-certificates
 
 ### From a Debian package
 
+Install a downloaded `.deb` package:
+
 ```bash
 sudo apt install ./term-pcl_0.1.0-1_amd64.deb
+```
+
+Uninstall the package:
+
+```bash
+sudo apt remove term-pcl
+```
+
+Remove the package and its system configuration files:
+
+```bash
+sudo apt purge term-pcl
 ```
 
 ### From source
@@ -53,7 +74,7 @@ ctest --test-dir build --output-on-failure
 sudo cmake --install build
 ```
 
-If your system does not provide FTXUI as a package, the default CMake configuration can fetch FTXUI during configure. Package builds disable that fallback so dependency resolution remains explicit.
+If your system does not provide FTXUI as a package, the default CMake configuration can fetch FTXUI during configure. The Debian package build uses the same fallback so local package builds work on Ubuntu/Debian systems without a separate FTXUI package.
 
 ## Usage
 
